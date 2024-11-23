@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Poker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Jogo de Poker Simples</h1>
+    <div id="game">
+        <button id="dealButton">Distribuir Cartas</button>
+        <div id="playerHand" class="hand">
+            <h2>Mão do Jogador:</h2>
+            <div id="playerCards"></div>
+        </div>
+        <div id="dealerHand" class="hand">
+            <h2>Mão do Dealer:</h2>
+            <div id="dealerCards"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
