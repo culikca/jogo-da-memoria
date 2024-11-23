@@ -1,7 +1,8 @@
+// Baralho com naipes e valores
 const suits = ["♦", "♥", "♠", "♣"];
 const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-// Função para criar um baralho
+// Função para criar o baralho
 function createDeck() {
     const deck = [];
     for (const suit of suits) {
@@ -12,7 +13,7 @@ function createDeck() {
     return deck;
 }
 
-// Função para embaralhar o baralho
+// Função para embaralhar
 function shuffle(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -21,21 +22,21 @@ function shuffle(deck) {
     return deck;
 }
 
-// Função para lidar as cartas
+// Função para distribuir as cartas
 function dealCards(deck) {
     const playerHand = deck.slice(0, 5);
     const dealerHand = deck.slice(5, 10);
     return { playerHand, dealerHand };
 }
 
-// Função para mostrar as cartas na tela
+// Exibe cartas na tela
 function displayCards(hand, elementId) {
     const handElement = document.getElementById(elementId);
-    handElement.innerHTML = ""; // Limpa as cartas anteriores
+    handElement.innerHTML = ""; // Limpa cartas anteriores
     hand.forEach(card => {
         const cardElement = document.createElement("div");
         cardElement.className = "card";
-        cardElement.innerText = ${card.rank}${card.suit};
+        cardElement.innerHTML = ${card.rank}<span>${card.suit}</span>;
         handElement.appendChild(cardElement);
     });
 }
@@ -43,8 +44,4 @@ function displayCards(hand, elementId) {
 // Inicializa o jogo
 document.getElementById("dealButton").addEventListener("click", () => {
     const deck = shuffle(createDeck());
-    const { playerHand, dealerHand } = dealCards(deck);
-
-    displayCards(playerHand, "playerCards");
-    displayCards(dealerHand, "dealerCards");
-});
+    const { playerHand, dealerHand } = dealCards(deck)
